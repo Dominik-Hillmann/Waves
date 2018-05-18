@@ -3,6 +3,7 @@ public class Slider {
 	// A slider "ping-pongs" a value (current) between the MIN and the MAX.
 	private final float MAX;
 	private final float MIN;
+	private final float MEAN;
 	private float current;
 	private boolean down = true;
 	private float step;
@@ -11,8 +12,13 @@ public class Slider {
 	Slider(float min, float max, float step) {
 		this.MAX = max;
 		this.MIN = min;
+		this.MEAN = (min + max) / 2;
 		this.step = step;
 		this.current = Math.round((min + max) / 2);
+	}
+	
+	public float mean() {
+		return MEAN;
 	}
 	
 	public float getCurrent(int frame) {
@@ -25,4 +31,5 @@ public class Slider {
 		}			
 		return current;
 	}
+	
 }
